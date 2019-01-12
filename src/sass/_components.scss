@@ -119,11 +119,11 @@
       position: relative;
 
 
-      @media only screen and (max-width: $bp-768) {
-        padding: 3rem 7rem;
-        font-size: 2.7rem;
-        border-radius: 5rem;
-      }
+      // @media only screen and (max-width: $bp-768) {
+      //   padding: 3rem 7rem;
+      //   font-size: 2.7rem;
+      //   border-radius: 5rem;
+      // }
 
 
       //Change for the <button> element
@@ -170,9 +170,9 @@
       z-index: -1;
       transition: all .4s;
 
-      @media only screen and (max-width: $bp-768) {
-        border-radius: 5rem;
-      }
+      // @media only screen and (max-width: $bp-768) {
+      //   border-radius: 5rem;
+      // }
   }
 }
 
