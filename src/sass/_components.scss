@@ -378,3 +378,28 @@
   }
 
 }
+
+
+////////////////
+// MAP
+#map {
+  margin: 20px auto;
+  /* Style for "Снимок экр" */
+  width: 95rem;
+  height: 44rem;
+
+  @media only screen and (max-width: 950px) {
+    width: 95%;
+  }
+
+  @media only screen and (max-width: $bp-768) {
+    width: 95%;
+    height: 40vh;
+  }
+
+  @media only screen and (max-width: $bp-520) {
+    width: 95%;
+    height: 30vh;
+  }
+
+}

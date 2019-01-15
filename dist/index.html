@@ -6,6 +6,8 @@
 
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
   <title>Test Form</title>
+
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=2120e456-e6dd-451b-a3e9-3b2fe9975bf6" type="text/javascript"></script>
 </head>
 <body>
   <div class="container">
@@ -24,11 +26,12 @@
       </form>
       <form action="#" class="search">
         <input class="search__input search__input--address" type="text" autocomplete="off" placeholder="Расположение объекта">
-        <button class="search__button">
+        <button class="search__button" type="button">
           <img src="images/input-circle.png" class="search__icon" alt="search__icon">
         </button>
       </form>
     </div>
+    <div id="map" style="display: none;"></div>
     <div class="btn-links">
       <a href="#" class="btn btn--white">Заказать выезд инженера</a>
       <a href="#" class="btn-link">Скачать буклет о нас</a>
