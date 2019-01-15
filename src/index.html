@@ -10,16 +10,21 @@
 <body>
   <div class="container">
     <header class="header">
+      <span id="show">Избранные 💛</span>
       <h1>Todo test</h1>
       <div>
         <span>Фильтры:</span>
         <i id="sort-price">Цена ↑↓</i>
         <select id="myFilter" class="cs-select">
+            <option disabled>Выберите тип события:</option>
+            <option value="concert">concert</option>
+            <option value="exhibition">exhibition</option>
         </select>
       </div>
     </header>
     <main>
-      <ul id="myList"></ul>
+      <ul id="myList" style="display: block;"></ul>
+      <ul id="myListFilter" style="display: none;"></ul>
     </main>
   </div>
   <script src="main-bundle.js"></script>

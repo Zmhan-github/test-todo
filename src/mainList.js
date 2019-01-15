@@ -1,49 +1,52 @@
 export default class ListBinding {
-  constructor(element, selectElemet) {
+  constructor(element) {
       this.listElement = element;
-      this.listElementFilter = selectElemet;
       this.textList = [
-          {
+          {   id: 1,
               title: "Концерт Depeche Mode",
               description: "Описание концерта здесь",
               price: 300,
               type: "concert",
+              highItem: true
           },
           {
+              id: 2,
               title: "Выставка Модильяни",
               description: "Описание выставки здесь",
               price: 200,
               type: "exhibition",
+              highItem: false
           }
       ],
       this.trigger = false
   }
 
   /* Makes an <li>obj</li> element/tag */
-  static createListItem ({ title, description, price, type }) {
+  static createListItem ({ id, title, description, price, type, highItem }) {
       const li = document.createElement('li');
       const h1 = document.createElement('h1');
       const p = document.createElement('p');
       const span = document.createElement('span');
+      const checkbox = document.createElement('input');
 
-      li.setAttribute('data-type', type);
       h1.textContent = title;
       p.textContent = description;
       span.textContent = `${price} руб.`;
 
+      checkbox.setAttribute('type', 'checkbox');
+      checkbox.setAttribute('class', 'c-checkbox');
+      checkbox.value = id;
+      if (highItem) {
+        checkbox.setAttribute('checked', '');
+      }
+
+
       li.appendChild(h1)
       li.appendChild(p)
       li.appendChild(span)
+      li.appendChild(checkbox)
 
       return li;
-  }
-
-  static createListItemFilter({ type }) {
-    // Filter
-    const option = document.createElement('option');
-    option.setAttribute('value', type);
-    option.textContent = type;
-    return option;
   }
 
   update() {
@@ -51,26 +54,11 @@ export default class ListBinding {
       while (this.listElement.firstChild) {
           this.listElement.removeChild(this.listElement.firstChild);
       }
-
       /* Fill <ul>/<ol> tag with <li> */
       for (const text of this.textList) {
           this.listElement.appendChild(ListBinding.createListItem(text));
       }
-
-    this.updateFilter()
   }
-
-  updateFilter() {
-    /* Remove all existing <li> elements/tags */
-    while (this.listElementFilter.firstChild) {
-        this.listElementFilter.removeChild(this.listElementFilter.firstChild);
-    }
-
-    /* Fill <ul>/<ol> tag with <li> */
-    for (const text of this.textList) {
-        this.listElementFilter.appendChild(ListBinding.createListItemFilter(text));
-    }
-}
 
   add(obj) {
       this.textList.push(obj);
@@ -85,12 +73,42 @@ export default class ListBinding {
   sortPrice() {
       if (this.trigger) {
           this.textList.sort((itemA, itemB) => itemB.price - itemA.price)
-          this.update()
-          this.trigger = !this.trigger
       } else {
           this.textList.sort((itemA, itemB) => itemA.price - itemB.price)
-          this.update()
-          this.trigger = !this.trigger
       }
+      this.update()
+      this.trigger = !this.trigger
   }
+
+  sortType(type) {
+    const firstArray = [], lastArray = []
+
+    this.textList.forEach(item => {
+        if (item.type === type) {
+            firstArray.push(item)
+        } else {
+            lastArray.push(item)
+        }
+    })
+
+    this.textList = firstArray.concat(lastArray);
+
+    //   this.textList = this.textList.map(i => (~i.type.indexOf(type)))
+    this.update()
+  }
+
+  setHighTextList(id, chekced) {
+    this.textList.map(item => {
+        if (item.id == id) {
+            item.highItem = chekced;
+        }
+    })
+    this.update();
+  }
+
+  showHighTextList() {
+    const data = this.textList.filter(item => item.highItem === true)
+    return data;
+  }
+
 }

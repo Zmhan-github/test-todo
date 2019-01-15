@@ -45,6 +45,13 @@ body {
   min-height: 100vh;
 }
 
+// Helps
 ul {
   list-style-type: none;
+}
+li {
+  position: relative;
+}
+#show {
+  cursor: pointer;
 }
