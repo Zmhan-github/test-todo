@@ -6,71 +6,21 @@
 
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
   <title>Test Form</title>
-
-  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=2120e456-e6dd-451b-a3e9-3b2fe9975bf6" type="text/javascript"></script>
 </head>
 <body>
   <div class="container">
-    <img src="./images/exit.png" alt="exit" class="exit">
     <header class="header">
-        <img src="./images/Shape.png" alt="Shape">
-        <h1>Заказать выезд инженера на объект</h1>
-        <h2>Произведем бесплатную экспертизу объема работ</h2>
+      <h1>Todo test</h1>
+      <div>
+        <span>Фильтры:</span>
+        <i id="sort-price">Цена ↑↓</i>
+        <select id="myFilter" class="cs-select">
+        </select>
+      </div>
     </header>
-    <div class="user-contant">
-      <form action="#" class="search">
-        <input class="search__input search__input--name" type="text" autocomplete="off" placeholder="Ваше Имя">
-      </form>
-      <form action="#" class="search">
-          <input class="search__input search__input--phone" type="text" autocomplete="off" placeholder="Телефон">
-      </form>
-      <form action="#" class="search">
-        <input class="search__input search__input--address" type="text" autocomplete="off" placeholder="Расположение объекта">
-        <button class="search__button" type="button">
-          <img src="./images/input-circle.png" class="search__icon" alt="search__icon">
-        </button>
-      </form>
-    </div>
-    <div id="map" style="display: none;"></div>
-    <div class="btn-links">
-      <a href="#" class="btn btn--white">Заказать выезд инженера</a>
-      <a href="#" class="btn-link">Скачать буклет о нас</a>
-    </div>
-    <footer class="footer">
-      <div class="service-info">
-        <h2 class="service-info__text">Уникальный сервис</h2>
-      </div>
-      <div class="steps">
-        <div class="step step-1">
-          <div class="step__icon">
-            <img class="step__icon--path" src="./images/Path_2.png" alt="path">
-          </div>
-          <h3 class="step__header-text">Контроль полного цикла работ</h3>
-          <p class="step__info-text">Когда всем занимается одна организация, вам спокойней. Плюс еще несколько строчек текста.</p>
-        </div>
-        <div class="step step-2">
-            <div class="step__icon">
-                <img class="step__icon--path" src="./images/Path_2.png" alt="path">
-            </div>
-            <h3 class="step__header-text">Инженерный контроль объектов</h3>
-            <p class="step__info-text">Вы можете не беспокоится о внезапном выходе из строя оборудования, и обратиться к нам бесплатно</p>
-        </div>
-        <div class="step step-3">
-          <div class="step__icon">
-              <img class="step__icon--path" src="./images/Path_2.png" alt="path">
-          </div>
-          <h3 class="step__header-text">Ленэнерго, ПСК, городские и областные инстанции</h3>
-          <p class="step__info-text">Вам больше не придется проходить процедуру согласования и сдачу объекта</p>
-        </div>
-        <div class="step step-4">
-          <div class="step__icon">
-              <img class="step__icon--path" src="./images/Path_2.png" alt="path">
-          </div>
-          <h3 class="step__header-text">Поэтапная оплата</h3>
-          <p class="step__info-text">Вы платите за видимый результат. Плюс еще несколько строчек текста, чтобы запоплнить необходимый обем</p>
-        </div>
-      </div>
-    </footer>
+    <main>
+      <ul id="myList"></ul>
+    </main>
   </div>
   <script src="main-bundle.js"></script>
 </body>
